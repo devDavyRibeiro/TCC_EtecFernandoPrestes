@@ -121,7 +121,7 @@ margin-left: 0; /* Define a margem esquerda como 0 para alinhar o carrossel à e
   margin-top:16px;
 }
 .custom-modal-size {
-  max-width: 375px; /* Largura máxima para o modal médio */
+  max-width: 500px; /* Largura máxima para o modal médio */
   width: 100%; /* Largura em porcentagem para garantir responsividade */
 }
 .modal-with-background .modal-header {
@@ -394,7 +394,7 @@ Generic layout (demo looks)
   height: 400px;
 }
 /*Botão de fazer login*/
-.button1 {
+.button1, .button-admin{
   display: inline-block;
   padding: 12px 20px;
   border-radius: 160px;
@@ -406,11 +406,10 @@ Generic layout (demo looks)
   position: relative;
   overflow: hidden;
   z-index: 1;
-  margin-right: 40px;
-  width: 100px;
+  width: auto;
   height: 50px;
 }
-.button1:after {
+.button1:after, .button-admin :after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -421,7 +420,7 @@ Generic layout (demo looks)
   border-radius: 160px;
   z-index: -2;
 }
-.button1:before {
+.button1:before, .button-admin:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -433,11 +432,18 @@ Generic layout (demo looks)
   border-radius: 160px;
   z-index: -1;
 }
-.button1:hover {
+.button1:hover, .button-admin:hover {
   color: #fff;
 }
-.button1:hover:before {
+.button1:hover:before, .button-admin:hover:before {
   width: 100%;
+}
+.button-admin{
+  border-color: #207bf3;
+  font-size: 12px;
+}
+.button-admin:before{
+  background-color: #207bf3;
 }
 .button2 {
   display: inline-block;
