@@ -44,10 +44,10 @@ function add($vPost, $vTabela)
 	}
 
 	$vUpdate = rtrim($vUpdate, ','); // tira a última vírgula
-	$vValues = rtrim($vValues, ',');
+	$vValues = rtrim($vValues, ','); // tira a última vírgula
 	
-	$vTabela = ltrim($vTabela, "_");
-	$vTabela = ucfirst($vTabela);
+	$vTabela = ltrim($vTabela, "_"); // pega o nome da tabela
+	$vTabela = ucfirst($vTabela); // coloca o primeira letra da tabela em Maiuscula
 
 	$vSql = "INSERT INTO $vTabela($vUpdate)VALUES($vValues)"; //sql da inserção
 
@@ -215,7 +215,7 @@ function update($vId, $vPost, $vTabela)
             $vColumn .= $vPreColumn . rtrim($vTabela, 's') . '=' . "'$vDado',";
         }
         $vColumn = rtrim($vColumn, ',');
-        $vTabela = ltrim($vTabela, "_");
+        $vTabela = ltrim(ucfirst($vTabela), "_"); // pega o nome da tabela e deixa a primeira letra em Maiuscula
         $vSql = "UPDATE $vTabela SET $vColumn WHERE id_" . rtrim($vTabela, 's') . " = ?";
         $vStmt = $objDatabase->prepare($vSql);
         $vStmt->execute([$vId]);
@@ -235,7 +235,7 @@ function delete($vId, $vTabela)
 	try {
 		$vCampo = "id" . rtrim($vTabela, 's');
 		$vTabela = ltrim($vTabela, "_");
-		$vTabela = ucfirst($vTabela);
+		$vTabela = ucfirst($vTabela); // coloca o primeira letra da tabela em Maiuscula
 
 		$vSql = "DELETE FROM $vTabela WHERE $vCampo = ?";
 		$vStmt = $objDatabase->prepare($vSql);
